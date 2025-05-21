@@ -66,7 +66,7 @@ echo "downloading patch_linux..."
 if ! [ -f "$SELF_DIR/patch_linux" ]; then
     echo "no patch_linux! downloading..."
     
-    TAG=$(jq -r 'map(select(.prerelease)) | first | .tag_name' <<< $(curl --silent https://api.github.com/repos/ShirkNeko/SukiSU_KernelPatch_patch/releases))
+    TAG=$(jq -r 'map(select(.prerelease)) | first | .tag_name' <<< $(curl -L --silent https://api.github.com/repos/ShirkNeko/SukiSU_KernelPatch_patch/releases))
     echo "latest tag is: $TAG"
 
     curl -Ls -o "$SELF_DIR/patch_linux" "https://github.com/ShirkNeko/SukiSU_KernelPatch_patch/releases/download/$TAG/patch_linux"
