@@ -1,0 +1,12 @@
+diff --git a/kernel/apk_sign.c b/kernel/apk_sign.c
+index c1a2c484..997a8ce1 100644
+--- a/kernel/apk_sign.c
++++ b/kernel/apk_sign.c
+@@ -35,6 +35,7 @@ static struct apk_sign_key {
+ 	{EXPECTED_SIZE_SHIRKNEKO, EXPECTED_HASH_SHIRKNEKO}, // SukiSU
+ 	{EXPECTED_SIZE_5EC1CFF, EXPECTED_HASH_5EC1CFF}, // MKSU
+ 	{EXPECTED_SIZE_WEISHU, EXPECTED_HASH_WEISHU}, // KSU
++    {0x34e, "a96ec51db032011dffb1184fa6513e421bd9073b3f392b04ecd2e7fdd4798065"}, // SukiSU-Zako
+ #endif
+ };
+ 
