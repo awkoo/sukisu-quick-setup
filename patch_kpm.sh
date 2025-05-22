@@ -1,6 +1,6 @@
 #!/usr/bin/bash
 
-SELF_DIR=$(dirname $0)
+SELF_DIR=$(realpath $(dirname $0))
 
 if ! [ -f "$SELF_DIR/patch_linux" ]; then
     echo "patch_linux not found! abort!"

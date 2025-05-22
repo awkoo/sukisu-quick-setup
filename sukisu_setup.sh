@@ -63,29 +63,7 @@ if [ "$APPLY_ZAKO_HASH" = "yes" ]; then
 fi
 
 echo "downloading patch_linux..."
-if ! [ -f "$SELF_DIR/patch_linux" ]; then
-    echo "no patch_linux! downloading..."
-    
-    TAG=$(jq -r 'map(select(.prerelease)) | first | .tag_name' <<< $(curl -L --silent https://api.github.com/repos/ShirkNeko/SukiSU_KernelPatch_patch/releases))
-    echo "latest tag is: $TAG"
-
-    curl -Ls -o "$SELF_DIR/patch_linux" "https://github.com/ShirkNeko/SukiSU_KernelPatch_patch/releases/download/$TAG/patch_linux"
-
-    if [ $? -eq 0 ]; then
-        echo "download ok"
-    else
-        echo "download fail ($?)! abort!"
-        exit 1
-    fi
-
-    chmod +x "$SELF_DIR/patch_linux"
-    if [ $? -eq 0 ]; then
-        echo "set permission ok"
-    else
-        echo "failed to set permission! abort!"
-        exit 1
-    fi
-fi
+$SELF_DIR/download_patch_linux.sh
 
 echo "adding CONFIG_KPM=y"
 echo "CONFIG_KPM=y" >> arch/arm64/configs/gki_defconfig
