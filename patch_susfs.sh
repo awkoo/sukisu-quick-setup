@@ -10,7 +10,7 @@ if [ "$1" = "" ]; then
 fi
 
 if ! [ -d "susfs4ksu" ]; then
-    git submodule add https://gitlab.com/simonpunk/susfs4ksu.git -b $1
+    git submodule add -b $1 https://gitlab.com/simonpunk/susfs4ksu.git
 fi
 echo "$SELF: update submodules"
 git submodule update --init --recursive
