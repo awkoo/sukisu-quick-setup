@@ -6,7 +6,6 @@
 SUKISU_REPO="ShirkNeko/SukiSU-Ultra"
 BRANCH="susfs-dev"
 COMMIT=""
-DEFAULT_BRANCH="sukisu-susfs"
 
 # Should we add zakosu hash as well?
 APPLY_ZAKO_HASH="yes"
@@ -22,8 +21,10 @@ CUSTOM_KERNEL_SUFFIX="zako"
 
 # If you'd like a custom kernel name, specify it here
 # This will override above name settings.
-CUSTOM_KERNEL_NAME="7.1.39-zako"
+CUSTOM_KERNEL_NAME=""
 
+# Should we apply susfs duplicate definition fix?
+SUSFS_DUPLICATE_DEF_FIX="yes"
 
 ## END CONFIG SECTION
 
@@ -82,6 +83,11 @@ if [ -f "$SELF_DIR/patch_susfs.sh" ]; then
 else
     echo "error! patch_susfs.sh not found!"
     exit 1
+fi
+
+if [ "$SUSFS_DUPLICATE_DEF_FIX" = "yes" ]; then
+    echo "applying susfs duplicate definition fix"
+    patch p1 < $SELF_DIR/03-fix-susfs-duplicate-definition.patch
 fi
 
 echo "applying custom kernel name settings"
