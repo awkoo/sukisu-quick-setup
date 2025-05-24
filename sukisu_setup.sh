@@ -87,7 +87,7 @@ fi
 
 if [ "$SUSFS_DUPLICATE_DEF_FIX" = "yes" ]; then
     echo "applying susfs duplicate definition fix"
-    patch p1 < $SELF_DIR/03-fix-susfs-duplicate-definition.patch
+    patch -p1 < $SELF_DIR/03-fix-susfs-duplicate-definition.patch
 fi
 
 echo "applying custom kernel name settings"
