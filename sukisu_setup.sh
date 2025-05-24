@@ -50,18 +50,26 @@ if ! [ $? -eq 0 ]; then
     exit 1
 fi
 
+
+cd KernelSU
+echo "enter KernelSU directory"
 if ! [ "$COMMIT" = "" ]; then
     echo "using commit $COMMIT"
-    cd KernelSU
     git reset --hard $COMMIT
-    cd ..
 fi
 
+
 if [ "$APPLY_ZAKO_HASH" = "yes" ]; then
-    cd KernelSU
+    echo "adding zakosu manager"
     patch -p1 < $SELF_DIR/01-add-zakosu-manager.patch
-    cd ..
 fi
+
+if [ "$SUSFS_DUPLICATE_DEF_FIX" = "yes" ]; then
+    echo "applying susfs duplicate definition fix"
+    patch -p1 < $SELF_DIR/03-fix-susfs-duplicate-definition.patch
+fi
+
+cd ..
 
 echo "downloading patch_linux..."
 $SELF_DIR/download_patch_linux.sh
@@ -83,11 +91,6 @@ if [ -f "$SELF_DIR/patch_susfs.sh" ]; then
 else
     echo "error! patch_susfs.sh not found!"
     exit 1
-fi
-
-if [ "$SUSFS_DUPLICATE_DEF_FIX" = "yes" ]; then
-    echo "applying susfs duplicate definition fix"
-    patch -p1 < $SELF_DIR/03-fix-susfs-duplicate-definition.patch
 fi
 
 echo "applying custom kernel name settings"
