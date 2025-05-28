@@ -13,7 +13,7 @@ fi
 
 if ! [ "$CUSTOM_KERNEL_NAME" = "" ]; then
     :> scripts/setlocalversion # :> owo
-    log "#!/bin/sh" >> scripts/setlocalversion
-    log "echo '$CUSTOM_KERNEL_NAME'" >> scripts/setlocalversion
+    echo "#!/bin/sh" >> scripts/setlocalversion
+    echo "echo '$CUSTOM_KERNEL_NAME'" >> scripts/setlocalversion
 fi
 
