@@ -7,7 +7,15 @@ Some easy and quick setup scripts for setting up SukiSU-Ultra + susfs4ksu + Zako
 
 ---
 
-# How to use
+## Supported Features
+
+- Automated SukiSU-Ultra integration
+- Automated susfs4ksu integration
+- Automated KPM patching (patch during build)
+- Fix susfs duplicate definition problem
+- Custom kernel name
+
+## How to use
 Execute this in your kernel project root directory
 ```shell
 curl -LSs "https://raw.githubusercontent.com/Lama3L9R/sukisu-quick-setup/master/zako-zako-zako.sh" | bash -s
