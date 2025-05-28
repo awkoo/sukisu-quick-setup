@@ -21,12 +21,14 @@ function open-file() {
     fi
 }
 
-git clone --recurse-submodules https://github.com/Lama3L9R/sukisu-quick-setup sukisu-quick-setup
+if ! [ -d sukisu-quick-setup ]; then
+    git clone --recurse-submodules https://github.com/Lama3L9R/sukisu-quick-setup sukisu-quick-setup
+fi
 
-open-file sukisu-quick-setup/sukisu_setup.sh
+open-file sukisu-quick-setup/sukisu-setup.sh
 
 echo "alright, lets go!"
 sleep 1
 
-bash sukisu-quick-setup/sukisu_setup.sh
+bash sukisu-quick-setup/sukisu-setup.sh
 
