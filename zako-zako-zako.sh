@@ -21,7 +21,7 @@ function open-file() {
     fi
 }
 
-git clone https://github.com/Lama3L9R/sukisu-quick-setup sukisu-quick-setup
+git clone --recurse-submodules https://github.com/Lama3L9R/sukisu-quick-setup sukisu-quick-setup
 
 open-file sukisu-quick-setup/sukisu_setup.sh
 

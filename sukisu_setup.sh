@@ -26,6 +26,9 @@ CUSTOM_KERNEL_NAME=""
 # Should we apply susfs duplicate definition fix?
 SUSFS_DUPLICATE_DEF_FIX="yes"
 
+# Should we apply hide patch?
+APPLY_EXTRA_HIDE_PATCH="yes"
+
 ## END CONFIG SECTION
 
 SELF_DIR=$(realpath $(dirname $0))
@@ -107,6 +110,10 @@ if ! [ "$CUSTOM_KERNEL_NAME" = "" ]; then
     : > scripts/setlocalversion # :> owo
     echo "#!/bin/sh" >> scripts/setlocalversion
     echo "echo '$CUSTOM_KERNEL_NAME'" >> scripts/setlocalversion
+fi
+
+if [ "$APPLY_EXTRA_HIDE_PATCH" = "yes" ]; then
+    patch -p1 < $SELF_DIR/SukiSU_patch/69_hide_stuff.patch
 fi
 
 echo "setup done"
