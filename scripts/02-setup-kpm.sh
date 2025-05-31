@@ -38,7 +38,7 @@ fi
 
 if ! grep -q "CONFIG_KPM" arch/arm64/configs/gki_defconfig; then
     log "Adding CONFIG_KPM=y"
-    log "CONFIG_KPM=y" >> arch/arm64/configs/gki_defconfig
+    echo "CONFIG_KPM=y" >> arch/arm64/configs/gki_defconfig
 fi
 
 if ! grep -q "patch_kpm.sh" arch/arm64/Makefile; then

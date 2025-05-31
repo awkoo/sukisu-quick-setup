@@ -37,7 +37,7 @@ fi
 cd ..
 
 log "Creating symlink..."
-ln -sf KernelSU/kernel drivers/kernelsu
+ln -sf ../KernelSU/kernel drivers/kernelsu
 
 if ! grep -q "kernelsu" drivers/Makefile; then
     log "Adding kernelsu driver..."
