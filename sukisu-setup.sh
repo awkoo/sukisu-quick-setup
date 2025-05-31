@@ -44,6 +44,7 @@ $SELF_DIR/scripts/03-setup-susfs.sh
 $SELF_DIR/scripts/04-custom-version.sh
 $SELF_DIR/scripts/05-extra-patch.sh
 $SELF_DIR/scripts/06-add-lz4kd.sh
+$SELF_DIR/scripts/07-remove-common-src-confcheck.sh
 
 echo ""
 echo "All done!"
