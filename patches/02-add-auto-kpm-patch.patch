@@ -11,6 +11,3 @@ index 6986f77cc..f578a121c 100644
 + $(Q)$(srctree)/scripts/patch_kpm
 +	$(Q)mv -f $(obj)/oImage $@
 +endif
- 
- $(obj)/Image.bz2: $(obj)/Image FORCE
- 	$(call if_changed,bzip2)
